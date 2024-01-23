@@ -1,0 +1,24 @@
+{
+    "name": "code-walk-though",
+    "type": "module",
+    "scripts": {
+        "dev": "vinxi dev",
+        "build": "vinxi build",
+        "start": "vinxi start",
+        "prepare": "panda codegen"
+    },
+    "dependencies": {
+        "@solidjs/meta": "^0.29.2",
+        "@solidjs/router": "^0.10.9",
+        "@solidjs/start": "^0.4.10",
+        "oxlint": "^0.2.3",
+        "solid-js": "^1.8.11",
+        "vinxi": "^0.1.4"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "devDependencies": {
+        "@pandacss/dev": "^0.27.3"
+    }
+}
