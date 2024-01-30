@@ -14,7 +14,7 @@ export default function Login() {
         >
             <Card.Root>
                 <Card.Header>
-                    <Card.Title>Sign In</Card.Title>
+                    <Card.Title>Sign In {process.env.DB || "aaa"}</Card.Title>
                 </Card.Header>
                 <Card.Body>
                     <Button>Login Via Github</Button>
