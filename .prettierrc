@@ -4,7 +4,5 @@
     "endOfLine": "lf",
     "jsxSingleQuote": false,
     "trailingComma": "all",
-    "singleQuote": false,
-    "proseWrap": "always",
-    "rangeEnd": 40
+    "singleQuote": false
 }
