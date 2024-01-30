@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1706589202535,
+      "tag": "0000_daily_felicia_hardy",
+      "breakpoints": true
+    }
+  ]
+}
