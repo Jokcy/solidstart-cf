@@ -1,10 +1,8 @@
 import { type APIEvent } from "@solidjs/start/server";
-import { useDB } from "~/server/database/db";
+import { getDB } from "~/server/database/db";
 
 export function GET(event: APIEvent) {
-    const c = event.context;
-
-    const db = useDB({ D1: event.context?.cloudflare?.DB });
+    const db = getDB();
 
     return new Response(event.context.cloudflare);
 }

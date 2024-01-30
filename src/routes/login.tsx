@@ -1,22 +1,23 @@
-import { Button } from "~/components/Button";
-import * as Card from "~/components/Card";
+import { Button } from "~/components/ui/Button";
+import * as Card from "~/components/ui/Card";
 import { css } from "~/styled-system/css";
 // import {} from "@solidjs/start";
 import { getRequestEvent } from "solid-js/web";
 import { createResource } from "solid-js";
+import { cache, createAsync } from "@solidjs/router";
 
-function hasDB() {
+const hasDB = cache(function hasDB() {
     "use server";
 
     const requestEvent = getRequestEvent();
 
     console.log(requestEvent?.context);
 
-    return Object.keys(requestEvent?.context?.cloudflare?.DB || {}).join(",");
-}
+    return Promise.resolve("asdasdasd");
+}, "hasDB");
 
 export default function Login() {
-    const [inDB] = createResource(hasDB);
+    const inDB = createAsync(hasDB);
 
     return (
         <div
