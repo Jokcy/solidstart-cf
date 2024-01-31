@@ -32,3 +32,5 @@ styled-system
 styled-system-studio
 
 .vinxi
+
+*.sqlite
