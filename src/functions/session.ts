@@ -19,7 +19,9 @@ const secret = new TextEncoder().encode(SECRET);
 export const signJWT = async (payload: any) => {
     "use server";
 
-    const jwt = new SignJWT(payload).setExpirationTime("1d");
+    const jwt = new SignJWT(payload)
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("1d");
     return await jwt.sign(secret);
 };
 
