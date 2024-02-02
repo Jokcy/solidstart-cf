@@ -5,7 +5,7 @@ import {
     action,
     useAction,
 } from "@solidjs/router";
-import { desc } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 import { For, createEffect } from "solid-js";
 import { Button } from "~/components/ui/Button";
 import * as Card from "~/components/ui/Card";
@@ -15,13 +15,21 @@ import { todos } from "~/server/database/schema";
 import { css } from "~/styled-system/css";
 import { Trash2 } from "lucide-solid";
 import { Switch } from "~/components/ui/Switch";
+import { getSessionFromCookie } from "~/functions/session";
 
 const getTodos = cache(async () => {
     "use server";
     const db = getDB();
 
+    const session = await getSessionFromCookie();
+
+    if (!session?.id) {
+        throw new Error("Not authenticated");
+    }
+
     const result = await db.query.todos.findMany({
         orderBy: [desc(todos.createdAt)],
+        where: (todos, { eq }) => eq(todos.userId, session.id),
     });
 
     return result.map((todo) => ({
@@ -34,59 +42,97 @@ const addTodo = action(async (text: string) => {
     "use server";
     const db = getDB();
 
-    console.log("running", text);
+    const session = await getSessionFromCookie();
 
-    const x = await db
+    if (!session?.id) {
+        throw new Error("Not authenticated");
+    }
+
+    await db
         .insert(todos)
         .values({
             title: text,
             createdAt: new Date(),
+            userId: session.id,
         })
         .returning()
         .execute();
-
-    console.log(x);
-
-    revalidate(getTodos.key);
 }, "addTodo");
+
+const deleteTodo = action(async (id: number) => {
+    "use server";
+    const db = getDB();
+
+    const session = await getSessionFromCookie();
+
+    if (!session?.id) {
+        throw new Error("Not authenticated");
+    }
+
+    await db
+        .delete(todos)
+        .where(and(eq(todos.id, id), eq(todos.userId, session.id)))
+        .execute();
+});
+
+const completeTodo = action(async (id: number, state: 0 | 1) => {
+    "use server";
+    const db = getDB();
+
+    const session = await getSessionFromCookie();
+
+    if (!session?.id) {
+        throw new Error("Not authenticated");
+    }
+
+    await db
+        .update(todos)
+        .set({ completed: state })
+        .where(and(eq(todos.id, id), eq(todos.userId, session.id)))
+        .execute();
+});
 
 export function Todos() {
     const todos = createAsync(getTodos);
 
     const add = useAction(addTodo);
 
+    const remove = useAction(deleteTodo);
+
+    const complete = useAction(completeTodo);
+
+    createEffect(() => {
+        console.log(todos());
+    });
+
     createEffect(() => {
         console.log(todos());
     });
 
     return (
-        <main
-            class={css({
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                h: "screen",
-            })}
-        >
-            <div class={css({ width: "500px" })}>
-                <Card.Root>
-                    <Card.Header>
-                        <Card.Title>TODOS</Card.Title>
-                    </Card.Header>
-                    <Card.Body>
-                        <Input
-                            type="text"
-                            placeholder="New Todo"
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                    add(e.currentTarget.value);
-                                    e.currentTarget.value = "";
-                                }
-                            }}
-                            size="lg"
-                        ></Input>
-                        <For each={todos()}>
-                            {({ title }) => (
+        <div class={css({ width: "500px" })}>
+            <Card.Root>
+                <Card.Header>
+                    <Card.Title>TODOS</Card.Title>
+                </Card.Header>
+                <Card.Body>
+                    <Input
+                        type="text"
+                        placeholder="New Todo"
+                        onKeyDown={async (e) => {
+                            if (e.key === "Enter") {
+                                const currentTarget = e.currentTarget;
+                                await add(currentTarget.value);
+                                revalidate(getTodos.key);
+                                currentTarget.value = "";
+                            }
+                        }}
+                        size="lg"
+                    ></Input>
+                    <For each={todos()}>
+                        {({ title, id, completed }) => {
+                            console.log(id, completed);
+                            return (
                                 <div
                                     class={css({
                                         display: "flex",
@@ -96,10 +142,18 @@ export function Todos() {
                                     })}
                                 >
                                     <p
-                                        class={css({
-                                            flexGrow: 1,
-                                            fontSize: "large",
-                                        })}
+                                        class={css(
+                                            {
+                                                flexGrow: 1,
+                                                fontSize: "large",
+                                            },
+                                            completed
+                                                ? {
+                                                      textDecoration:
+                                                          "line-through",
+                                                  }
+                                                : {},
+                                        )}
                                     >
                                         {title}
                                     </p>
@@ -111,21 +165,38 @@ export function Todos() {
                                             gap: 2,
                                         })}
                                     >
-                                        <Switch></Switch>
+                                        <Switch
+                                            checked={completed === 1}
+                                            onCheckedChange={async (v) => {
+                                                console.log(
+                                                    "-------->  ",
+                                                    completed,
+                                                );
+                                                await complete(
+                                                    id,
+                                                    v.checked ? 1 : 0,
+                                                );
+                                                revalidate(getTodos.key);
+                                            }}
+                                        ></Switch>
                                         <Button
                                             variant="subtle"
                                             colorPalette="red"
                                             size="xs"
+                                            onClick={async () => {
+                                                await remove(id);
+                                                revalidate(getTodos.key);
+                                            }}
                                         >
                                             <Trash2 />
                                         </Button>
                                     </div>
                                 </div>
-                            )}
-                        </For>
-                    </Card.Body>
-                </Card.Root>
-            </div>
-        </main>
+                            );
+                        }}
+                    </For>
+                </Card.Body>
+            </Card.Root>
+        </div>
     );
 }

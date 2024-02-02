@@ -4,11 +4,24 @@ import { getRequestEvent } from "solid-js/web";
 import cookie from "cookie";
 import jwt from "jsonwebtoken";
 
-const [session, setSession] = createSignal<{ id: string }>();
+const [session, setSession] = createSignal<{
+    id: string;
+    name: string;
+    avatar: string;
+} | null>();
 
-const SECRET = "asdasdasdasdasd";
+const SECRET = process.env.JWT_SECRET!;
 
-const createSession = action(async () => {
+export const signJWT = (payload: any) => {
+    "use server";
+    const token = jwt.sign(payload, SECRET, {
+        expiresIn: "1d",
+    });
+
+    return token;
+};
+
+export const getSessionFromCookie = async () => {
     "use server";
 
     const event = getRequestEvent();
@@ -35,12 +48,19 @@ const createSession = action(async () => {
     } else {
         return null;
     }
-});
+};
+
+const createSession = action(getSessionFromCookie);
 
 const signIn = action(async () => {
     "use server";
 
-    throw redirect("https://baidu.com");
+    const clientId = process.env.GITHUB_CLIENT_ID;
+    const clientSecret = process.env.GITHUB_CLIENT_SECRET;
+
+    throw redirect(
+        `https://github.com/login/oauth/authorize?client_id=${clientId}`,
+    );
 });
 
 export function getSession() {
@@ -55,5 +75,8 @@ export function getSession() {
         }
     });
 
-    return session;
+    return {
+        session,
+        signIn: signInAction,
+    };
 }
