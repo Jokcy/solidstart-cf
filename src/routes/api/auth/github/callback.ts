@@ -56,6 +56,7 @@ export async function GET(event: APIEvent) {
             headers: {
                 Authorization: `Bearer ${tokenData.access_token}`,
                 Accept: "application/json",
+                "user-agent": "solidjs-cloudflare-pages",
             },
         });
 
