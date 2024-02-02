@@ -29,17 +29,21 @@ const getTodos = cache(async () => {
         throw new Error("Not authenticated");
     }
 
-    const result = await db.query.todos.findMany({
-        orderBy: [desc(todos.createdAt)],
-        where: (todos, { eq }) => eq(todos.userId, session.id),
-    });
+    try {
+        const result = await db.query.todos.findMany({
+            orderBy: [desc(todos.createdAt)],
+            where: (todos, { eq }) => eq(todos.userId, session.id),
+        });
 
-    console.log("result", result);
+        console.log("result", result);
 
-    return result.map((todo) => ({
-        ...todo,
-        createdAt: todo.createdAt.toISOString(),
-    }));
+        return result.map((todo) => ({
+            ...todo,
+            createdAt: todo.createdAt.toISOString(),
+        }));
+    } catch (err) {
+        console.error(err);
+    }
 }, "getTodos");
 
 const addTodo = action(async (text: string) => {
@@ -52,15 +56,19 @@ const addTodo = action(async (text: string) => {
         throw new Error("Not authenticated");
     }
 
-    await db
-        .insert(todos)
-        .values({
-            title: text,
-            createdAt: new Date(),
-            userId: session.id,
-        })
-        .returning()
-        .execute();
+    try {
+        await db
+            .insert(todos)
+            .values({
+                title: text,
+                createdAt: new Date(),
+                userId: session.id,
+            })
+            .returning()
+            .execute();
+    } catch (err) {
+        console.error(err);
+    }
 }, "addTodo");
 
 const deleteTodo = action(async (id: number) => {
@@ -73,10 +81,14 @@ const deleteTodo = action(async (id: number) => {
         throw new Error("Not authenticated");
     }
 
-    await db
-        .delete(todos)
-        .where(and(eq(todos.id, id), eq(todos.userId, session.id)))
-        .execute();
+    try {
+        await db
+            .delete(todos)
+            .where(and(eq(todos.id, id), eq(todos.userId, session.id)))
+            .execute();
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 const completeTodo = action(async (id: number, state: 0 | 1) => {
