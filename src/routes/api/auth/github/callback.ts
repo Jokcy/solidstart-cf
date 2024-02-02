@@ -51,46 +51,45 @@ export async function GET(event: APIEvent) {
         throw redirect("/error");
     }
 
-    const userResponse = await fetch("https://api.github.com/user", {
-        headers: {
-            Authorization: `Bearer ${tokenData.access_token}`,
-            Accept: "application/json",
-        },
-    });
+    try {
+        const userResponse = await fetch("https://api.github.com/user", {
+            headers: {
+                Authorization: `Bearer ${tokenData.access_token}`,
+                Accept: "application/json",
+            },
+        });
 
-    const userData: { id: number; name: string; avatar_url: string } =
-        await userResponse.json();
+        console.log("userResponse", await userResponse.clone().text());
 
-    console.log("userResponse", userData);
+        const userData: { id: number; name: string; avatar_url: string } =
+            await userResponse.json();
 
-    // redirect("/", {
-    //     headers: {
-    //         cookie: cookie.serialize("__session_id__", "TODO:token", {
-    //             httpOnly: true,
-    //             secure: true,
-    //             sameSite: "lax",
-    //         }),
-    //     },
-    // });
-    return new Response("", {
-        status: 302,
-        headers: {
-            Location: "/",
-            "set-cookie": cookie.serialize(
-                "__session_id__",
-                await signJWT({
-                    id: userData.id,
-                    name: userData.name,
-                    avatar: userData.avatar_url,
-                }),
-                {
-                    httpOnly: true,
-                    path: "/",
-                    sameSite: "lax",
-                    // domain: "localhost:3001",
-                    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
-                },
-            ),
-        },
-    });
+        console.log("userResponse", userData);
+
+        return new Response("", {
+            status: 302,
+            headers: {
+                Location: "/",
+                "set-cookie": cookie.serialize(
+                    "__session_id__",
+                    await signJWT({
+                        id: userData.id,
+                        name: userData.name,
+                        avatar: userData.avatar_url,
+                    }),
+                    {
+                        httpOnly: true,
+                        path: "/",
+                        sameSite: "lax",
+                        // domain: "localhost:3001",
+                        expires: new Date(
+                            Date.now() + 1000 * 60 * 60 * 24 * 365,
+                        ),
+                    },
+                ),
+            },
+        });
+    } catch (err) {
+        console.error(err);
+    }
 }
