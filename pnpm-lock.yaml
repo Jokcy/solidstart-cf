@@ -29,9 +29,6 @@ dependencies:
   '@types/cookie':
     specifier: ^0.6.0
     version: 0.6.0
-  '@types/jsonwebtoken':
-    specifier: ^9.0.5
-    version: 9.0.5
   better-sqlite3:
     specifier: ^9.3.0
     version: 9.3.0
@@ -3327,12 +3324,6 @@ packages:
 
   /@types/http-proxy@1.17.14:
     resolution: {integrity: sha512-SSrD0c1OQzlFX7pGu1eXxSEjemej64aaNPRhhVYUGqXh0BtldAAx37MG8btcumvpgKyZp1F5Gn3JkktdxiFv6w==}
-    dependencies:
-      '@types/node': 20.11.16
-    dev: false
-
-  /@types/jsonwebtoken@9.0.5:
-    resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
       '@types/node': 20.11.16
     dev: false
