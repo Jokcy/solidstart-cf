@@ -37,17 +37,22 @@ export const getSessionFromCookie = async () => {
     const token = cookieObject["__session_id__"];
 
     if (token) {
-        const { payload } = await jwtVerify<Session>(token, secret);
+        try {
+            const { payload } = await jwtVerify<Session>(token, secret);
 
-        if (!payload.id) {
-            throw new Error("Invalid token");
+            if (!payload.id) {
+                throw new Error("Invalid token");
+            }
+
+            return {
+                id: payload.id,
+                name: payload.name,
+                avatar: payload.avatar,
+            };
+        } catch (error) {
+            console.error(error);
+            return null;
         }
-
-        return {
-            id: payload.id,
-            name: payload.name,
-            avatar: payload.avatar,
-        };
     } else {
         return null;
     }
