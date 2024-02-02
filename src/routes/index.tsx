@@ -1,5 +1,5 @@
 import { Show, createEffect } from "solid-js";
-// import { Todos } from "~/components/feature/Todos";
+import { Todos } from "~/components/feature/Todos";
 import { Avatar } from "~/components/ui/Avatar";
 import { Button } from "~/components/ui/Button";
 import { getSession } from "~/functions/session";
@@ -9,7 +9,7 @@ export default function Home() {
     const { session, signIn } = getSession();
 
     createEffect(() => {
-        console.log("session", session());
+        console.log(session());
     });
 
     return (
@@ -46,7 +46,7 @@ export default function Home() {
                         size="2xl"
                     ></Avatar>
                 </div>
-                {/* <Todos></Todos> */}
+                <Todos></Todos>
             </Show>
         </main>
     );

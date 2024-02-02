@@ -2,23 +2,25 @@ import { action, redirect, useAction } from "@solidjs/router";
 import { createSignal, onMount } from "solid-js";
 import { getRequestEvent } from "solid-js/web";
 import cookie from "cookie";
-import jwt from "jsonwebtoken";
+import { SignJWT, jwtVerify } from "jose";
 
-const [session, setSession] = createSignal<{
-    id: string;
+export type Session = {
+    id: number;
     name: string;
     avatar: string;
-} | null>();
+};
+
+const [session, setSession] = createSignal<Session | null>();
 
 const SECRET = process.env.JWT_SECRET!;
 
-export const signJWT = (payload: any) => {
-    "use server";
-    const token = jwt.sign(payload, SECRET, {
-        expiresIn: "1d",
-    });
+const secret = new TextEncoder().encode(SECRET);
 
-    return token;
+export const signJWT = async (payload: any) => {
+    "use server";
+
+    const jwt = new SignJWT(payload).setExpirationTime("1d");
+    return await jwt.sign(secret);
 };
 
 export const getSessionFromCookie = async () => {
@@ -33,17 +35,16 @@ export const getSessionFromCookie = async () => {
     const token = cookieObject["__session_id__"];
 
     if (token) {
-        const decoded = jwt.verify(token, SECRET);
-        console.log(decoded);
+        const { payload } = await jwtVerify<Session>(token, secret);
 
-        if (typeof decoded === "string") {
+        if (!payload.id) {
             throw new Error("Invalid token");
         }
 
         return {
-            id: decoded.id,
-            name: decoded.name,
-            avatar: decoded.avatar,
+            id: payload.id,
+            name: payload.name,
+            avatar: payload.avatar,
         };
     } else {
         return null;

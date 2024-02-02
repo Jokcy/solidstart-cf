@@ -77,7 +77,7 @@ export async function GET(event: APIEvent) {
             Location: "/",
             "set-cookie": cookie.serialize(
                 "__session_id__",
-                signJWT({
+                await signJWT({
                     id: userData.id,
                     name: userData.name,
                     avatar: userData.avatar_url,

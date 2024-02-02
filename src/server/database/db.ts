@@ -1,8 +1,8 @@
 import { drizzle as drizzleD1, DrizzleD1Database } from "drizzle-orm/d1";
-// import { drizzle, BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
+import { drizzle, BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
 // @ts-ignore
-// import Database from "better-sqlite3";
-// import { join } from "pathe";
+import Database from "better-sqlite3";
+import { join } from "pathe";
 import { getRequestEvent } from "solid-js/web";
 import { todos } from "../database/schema";
 
@@ -12,9 +12,10 @@ const schema = {
     todos: todos,
 };
 
-let _db: DrizzleD1Database<typeof schema> | null =
-    // | BetterSQLite3Database<typeof schema>
-    null;
+let _db:
+    | DrizzleD1Database<typeof schema>
+    | BetterSQLite3Database<typeof schema>
+    | null = null;
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -29,16 +30,14 @@ export const getDB = () => {
             _db = drizzleD1(D1, {
                 schema,
             });
-        }
-        //  else if (isDev) {
-        //     // local sqlite in development
-        //     const sqlite = new Database(join(process.cwd(), "./db.sqlite"));
-        //     _db = drizzle(sqlite, {
-        //         schema,
-        //         logger: true,
-        //     });
-        // }
-        else {
+        } else if (isDev) {
+            // local sqlite in development
+            const sqlite = new Database(join(process.cwd(), "./db.sqlite"));
+            _db = drizzle(sqlite, {
+                schema,
+                logger: true,
+            });
+        } else {
             throw new Error("No database configured for production");
         }
     }

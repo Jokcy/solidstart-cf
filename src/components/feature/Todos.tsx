@@ -23,6 +23,8 @@ const getTodos = cache(async () => {
 
     const session = await getSessionFromCookie();
 
+    console.log("session", session?.id);
+
     if (!session?.id) {
         throw new Error("Not authenticated");
     }
@@ -31,6 +33,8 @@ const getTodos = cache(async () => {
         orderBy: [desc(todos.createdAt)],
         where: (todos, { eq }) => eq(todos.userId, session.id),
     });
+
+    console.log("result", result);
 
     return result.map((todo) => ({
         ...todo,
