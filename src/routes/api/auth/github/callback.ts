@@ -54,6 +54,7 @@ export async function GET(event: APIEvent) {
     const userResponse = await fetch("https://api.github.com/user", {
         headers: {
             Authorization: `Bearer ${tokenData.access_token}`,
+            Accept: "application/json",
         },
     });
 
