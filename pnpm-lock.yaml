@@ -18,13 +18,13 @@ dependencies:
     specifier: ^0.31.0
     version: 0.31.0(@internationalized/date@3.5.1)(@pandacss/dev@0.27.3)(@pandacss/types@0.29.1)
   '@solidjs/meta':
-    specifier: ^0.29.2
+    specifier: ^0.29.3
     version: 0.29.3(solid-js@1.8.12)
   '@solidjs/router':
-    specifier: ^0.10.9
+    specifier: ^0.10.10
     version: 0.10.10(solid-js@1.8.12)
   '@solidjs/start':
-    specifier: ^0.4.10
+    specifier: ^0.4.11
     version: 0.4.11(rollup@3.29.4)(solid-js@1.8.12)(vinxi@0.1.10)(vite@5.0.12)
   '@types/cookie':
     specifier: ^0.6.0
@@ -39,7 +39,7 @@ dependencies:
     specifier: ^0.6.0
     version: 0.6.0
   drizzle-kit:
-    specifier: ^0.20.13
+    specifier: ^0.20.14
     version: 0.20.14
   drizzle-orm:
     specifier: ^0.29.3
@@ -51,19 +51,19 @@ dependencies:
     specifier: ^0.319.0
     version: 0.319.0(solid-js@1.8.12)
   oxlint:
-    specifier: ^0.2.3
+    specifier: ^0.2.6
     version: 0.2.6
   pathe:
     specifier: ^1.1.2
     version: 1.1.2
   solid-js:
-    specifier: ^1.8.11
+    specifier: ^1.8.12
     version: 1.8.12
   solid-start-cloudflare-pages:
     specifier: ^0.3.10
     version: 0.3.10(solid-start@0.2.32)(vite@5.0.12)
   vinxi:
-    specifier: ^0.1.4
+    specifier: ^0.1.10
     version: 0.1.10(preact@10.19.3)(rollup@3.29.4)
 
 devDependencies:
@@ -4271,7 +4271,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.3
-      caniuse-lite: 1.0.30001582
+      caniuse-lite: 1.0.30001583
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4451,8 +4451,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001582
-      electron-to-chromium: 1.4.654
+      caniuse-lite: 1.0.30001583
+      electron-to-chromium: 1.4.655
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -4548,12 +4548,12 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.22.3
-      caniuse-lite: 1.0.30001582
+      caniuse-lite: 1.0.30001583
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  /caniuse-lite@1.0.30001582:
-    resolution: {integrity: sha512-vsJG3V5vgfduaQGVxL53uSX/HUzxyr2eA8xCo36OLal7sRcSZbibJtLeh0qja4sFOr/QQGt4opB4tOy+eOgAxg==}
+  /caniuse-lite@1.0.30001583:
+    resolution: {integrity: sha512-acWTYaha8xfhA/Du/z4sNZjHUWjkiuoAi2LM+T/aL+kemKQgPT1xBb/YKjlQ0Qo8gvbHsGNplrEJ+9G3gL7i4Q==}
 
   /chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -5162,8 +5162,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
-  /electron-to-chromium@1.4.654:
-    resolution: {integrity: sha512-hjfFa+Vj4WGLRVTlCQa+IivBkpcp+boGxMQfusOC/me5Y5NfU4wX7wyw+K9p8Cw4tl0BVIZGH2n7y/jMc3w4pg==}
+  /electron-to-chromium@1.4.655:
+    resolution: {integrity: sha512-2yszojF7vIZ68adIOvzV4bku8OZad9w5H9xF3ZAMZjPuOjBarlflUkjN6DggdV+L71WZuKUfKUhov/34+G5QHg==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}

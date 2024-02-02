@@ -6,7 +6,7 @@ export default defineConfig({
     },
     start: {
         server: {
-            preset: "cloudflare-module",
+            preset: "cloudflare-pages",
         },
     },
 });
