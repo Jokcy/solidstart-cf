@@ -12,9 +12,9 @@ export type Session = {
 
 const [session, setSession] = createSignal<Session | null>();
 
-const secret = new TextEncoder().encode(
-    "cc7e0d44fd473002f1c42167459001140ec6389b7353f8088f4d9a95f2f596f2",
-);
+const SECRET = process.env.JWT_SECRET!;
+
+const secret = new TextEncoder().encode(SECRET);
 
 export const signJWT = async (payload: any) => {
     "use server";
@@ -27,6 +27,8 @@ export const signJWT = async (payload: any) => {
 
 export const getSessionFromCookie = async () => {
     "use server";
+
+    console.log("SECRET", SECRET);
 
     const event = getRequestEvent();
 
