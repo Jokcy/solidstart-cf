@@ -1,7 +1,7 @@
-import { redirect } from "@solidjs/router";
+// import { redirect } from "@solidjs/router";
 import { APIEvent } from "@solidjs/start/server/types";
 import cookie from "cookie";
-import { signJWT } from "~/functions/session";
+import { signJWT } from "../../../../functions/session";
 
 export async function GET(event: APIEvent) {
     const request = event.request;
@@ -10,7 +10,9 @@ export async function GET(event: APIEvent) {
     const code = url.searchParams.get("code");
 
     if (!code) {
-        throw redirect("/error");
+        return new Response("Bad Request", {
+            status: 400,
+        });
     }
 
     const clientId = process.env.GITHUB_CLIENT_ID;
@@ -48,7 +50,9 @@ export async function GET(event: APIEvent) {
     );
 
     if (!tokenData.access_token) {
-        throw redirect("/error");
+        return new Response("Bad Request", {
+            status: 400,
+        });
     }
 
     try {

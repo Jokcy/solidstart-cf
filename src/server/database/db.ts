@@ -3,8 +3,9 @@ import { drizzle, BetterSQLite3Database } from "drizzle-orm/better-sqlite3";
 // @ts-ignore
 import Database from "better-sqlite3";
 import { join } from "pathe";
-import { getRequestEvent } from "solid-js/web";
+// import { getRequestEvent } from "solid-js/web";
 import { todos } from "../database/schema";
+import { getRequestEvent } from "solid-js/web";
 
 export * as tables from "../database/schema";
 
