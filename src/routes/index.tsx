@@ -8,10 +8,6 @@ import { css } from "~/styled-system/css";
 export default function Home() {
     const { session, signIn } = getSession();
 
-    createEffect(() => {
-        console.log(session());
-    });
-
     return (
         <main
             class={css({

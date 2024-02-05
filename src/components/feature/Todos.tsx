@@ -184,10 +184,6 @@ export function Todos() {
                                         <Switch
                                             checked={todo.completed === 1}
                                             onCheckedChange={async (v) => {
-                                                console.log(
-                                                    "-------->  ",
-                                                    todo.completed,
-                                                );
                                                 await complete(
                                                     todo.id,
                                                     v.checked ? 1 : 0,
