@@ -22,7 +22,7 @@ const isDev = process.env.NODE_ENV === "development";
 export const getDB = () => {
     const event = getRequestEvent();
 
-    const D1 = event?.context?.cloudflare?.env?.DB;
+    const D1 = event?.nativeEvent?.cloudflare?.env?.DB;
 
     if (!_db) {
         if (D1) {

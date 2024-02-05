@@ -8,12 +8,6 @@ dependencies:
   '@ark-ui/solid':
     specifier: ^1.3.0
     version: 1.3.0(@internationalized/date@3.5.1)(solid-js@1.8.12)
-  '@auth/core':
-    specifier: ^0.24.0
-    version: 0.24.0
-  '@auth/solid-start':
-    specifier: ^0.3.0
-    version: 0.3.0(solid-js@1.8.12)(solid-start@0.2.32)
   '@park-ui/panda-preset':
     specifier: ^0.31.0
     version: 0.31.0(@internationalized/date@3.5.1)(@pandacss/dev@0.27.3)(@pandacss/types@0.29.1)
@@ -24,14 +18,14 @@ dependencies:
     specifier: ^0.10.10
     version: 0.10.10(solid-js@1.8.12)
   '@solidjs/start':
-    specifier: ^0.4.11
-    version: 0.4.11(rollup@3.29.4)(solid-js@1.8.12)(vinxi@0.1.10)(vite@5.0.12)
+    specifier: ^0.5.0
+    version: 0.5.0(rollup@3.29.4)(solid-js@1.8.12)(vinxi@0.2.1)(vite@5.0.12)
   '@types/cookie':
     specifier: ^0.6.0
     version: 0.6.0
   better-sqlite3:
-    specifier: ^9.3.0
-    version: 9.3.0
+    specifier: ^9.4.0
+    version: 9.4.0
   cookie:
     specifier: ^0.6.0
     version: 0.6.0
@@ -40,16 +34,16 @@ dependencies:
     version: 0.20.14
   drizzle-orm:
     specifier: ^0.29.3
-    version: 0.29.3(better-sqlite3@9.3.0)
+    version: 0.29.3(better-sqlite3@9.4.0)
   jose:
-    specifier: ^5.2.0
-    version: 5.2.0
+    specifier: ^5.2.1
+    version: 5.2.1
   lucide-solid:
     specifier: ^0.319.0
     version: 0.319.0(solid-js@1.8.12)
   oxlint:
-    specifier: ^0.2.6
-    version: 0.2.6
+    specifier: ^0.2.7
+    version: 0.2.7
   pathe:
     specifier: ^1.1.2
     version: 1.1.2
@@ -60,8 +54,8 @@ dependencies:
     specifier: ^0.3.10
     version: 0.3.10(solid-start@0.2.32)(vite@5.0.12)
   vinxi:
-    specifier: ^0.1.10
-    version: 0.1.10(preact@10.19.3)(rollup@3.29.4)
+    specifier: ^0.2.1
+    version: 0.2.1(preact@10.19.3)(rollup@3.29.4)
 
 devDependencies:
   '@pandacss/dev':
@@ -161,36 +155,6 @@ packages:
       solid-js: 1.8.12
     transitivePeerDependencies:
       - '@internationalized/date'
-    dev: false
-
-  /@auth/core@0.24.0:
-    resolution: {integrity: sha512-wwTyapljg4ydyvtQRXSeOaj6nBVSvPkVoXws6i+/vPfINxz4lo9UuLifPLqW7iO72/f4Ttaez0g3XA42VtKQ8A==}
-    peerDependencies:
-      nodemailer: ^6.8.0
-    peerDependenciesMeta:
-      nodemailer:
-        optional: true
-    dependencies:
-      '@panva/hkdf': 1.1.1
-      '@types/cookie': 0.6.0
-      cookie: 0.6.0
-      jose: 5.2.0
-      oauth4webapi: 2.8.1
-      preact: 10.11.3
-      preact-render-to-string: 5.2.3(preact@10.11.3)
-    dev: false
-
-  /@auth/solid-start@0.3.0(solid-js@1.8.12)(solid-start@0.2.32):
-    resolution: {integrity: sha512-nIHvXi3SgnpBpr4V0Bc6RuiKfYsifGjA2ivJKtiUyxrB97wSI0XcIwb18IV6KkkvVTBDVm5T3niqo+ydXXhfyQ==}
-    peerDependencies:
-      solid-js: ^1.5.7
-      solid-start: ^0.2.14
-    dependencies:
-      '@auth/core': 0.24.0
-      solid-js: 1.8.12
-      solid-start: 0.2.32(@solidjs/meta@0.29.3)(@solidjs/router@0.10.10)(solid-js@1.8.12)(solid-start-cloudflare-pages@0.3.10)(vite@5.0.12)
-    transitivePeerDependencies:
-      - nodemailer
     dev: false
 
   /@babel/code-frame@7.23.5:
@@ -2381,64 +2345,64 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.0
 
-  /@oxlint/darwin-arm64@0.2.6:
-    resolution: {integrity: sha512-hUVo2oBnicVYbNiTnaYdXKHDsg9wAnnHYfw9HOM3lsqAXkkmUo9DI3spaYa6TMWUVJ57iTtcR7RXquJ7nVXijQ==}
+  /@oxlint/darwin-arm64@0.2.7:
+    resolution: {integrity: sha512-p3+5IlpapPiH5D7xEkndvgcbPWN3ylaP1qTv12YiX7uw5u9vR1dD64T2iNwdGPhySzJjohPXUWcfzsyJb7cJZA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/darwin-x64@0.2.6:
-    resolution: {integrity: sha512-DBdoJhtCos8sumzlFuNt+vmKWu2NEah7bI2EtnZi+6VGJKJpf+T6oA/RADkmDZN2msRrppznCTEewgQRA/LkfQ==}
+  /@oxlint/darwin-x64@0.2.7:
+    resolution: {integrity: sha512-l/cO2+2A56Kr9UuVb5cm5vgOn6HLAb8ozmdlM5nsRVUAs+ghouKkDnkypfMUs0CKGeQGMGy0F/IadZcMUd9mTQ==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/linux-arm64-gnu@0.2.6:
-    resolution: {integrity: sha512-1uWKjDsVNpGQir8dyA5RymU4FwcJUD4GUBBPDeN7xLgeVnIGXcNWzZ4GSsHsSAGLHgA9JJKQc8iQY+uZpTYRAw==}
+  /@oxlint/linux-arm64-gnu@0.2.7:
+    resolution: {integrity: sha512-5SQ3OKd+pAOVmOF0Sg8cC37k718YOSIbQK6cGadUOib/SzMjGwdcSKvcuxo90iie76VZSxK+XPI9eDXg4fTTOw==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/linux-arm64-musl@0.2.6:
-    resolution: {integrity: sha512-Sjq9thO2roo2dF0IVk2BQ1NiK0pAhzaJPaY8LdVhWhJy5PZya+UgRxhqb7dMckRq0HSNww3MTqaOD48wLeKJfg==}
+  /@oxlint/linux-arm64-musl@0.2.7:
+    resolution: {integrity: sha512-OobFOyl+g7tcs4y49VVKlXz5kzlmMJdH3c1gdRURA9ii067Hl0n5Kmji0TScPN9anp1/WbWa8tSMOTuuxGnI1g==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/linux-x64-gnu@0.2.6:
-    resolution: {integrity: sha512-iBwKXalx1l5/WpCDndJ+VQK3sbLcjZb+XcA2J5sJUfUlK6ua9+rf5bd6EMeVAb1fywlQPBkBya7kPDuJ43PPtw==}
+  /@oxlint/linux-x64-gnu@0.2.7:
+    resolution: {integrity: sha512-UbVjnCs6cL6AxK9QWbKlfE6xRYWXrlLAvPUtzlBnKhkRV6umfeYYvLymoe2NqvKFfqpMdi0qivw/jvbmISTMbw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/linux-x64-musl@0.2.6:
-    resolution: {integrity: sha512-aZDwMqS4lMPaWzlgA4N9Mw5W/uPQoOh/aCrnsjkub4P9xVoOA1KHoaA+gskdnRkZp2tgiUBOpqLs6tY6WPfqOA==}
+  /@oxlint/linux-x64-musl@0.2.7:
+    resolution: {integrity: sha512-AMwIPWYVofqlRuzj4U0rzbGSFQONky2aZPDrKWN+hT78JHbpGvKCinc5JBgATQxVLL4fRKM6vIlaIwKUroUMWg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/win32-arm64@0.2.6:
-    resolution: {integrity: sha512-kpA0v76i+qU8xLHu74KH1HaSsKdZeckf7gk1NKTDpAQklUoeae9lO0NKWuszpfSb1l1tvyRbqwWU94GfGMuCtA==}
+  /@oxlint/win32-arm64@0.2.7:
+    resolution: {integrity: sha512-Vim/aDQCDqewxD/O/MqT994tPxgRBMuFdBarapjS3gfm5KUT7TU1BbURpRPy+9CcOl18w4oDKTuerWXCCAqpMQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: false
     optional: true
 
-  /@oxlint/win32-x64@0.2.6:
-    resolution: {integrity: sha512-Sh4ieKl5O6EWtwSA2pL5Pr7ixaMXiIiXT310qMBicboq/6QfAujCH7pN28pxtqDxbSckE1QiSZfAafuyddAKrQ==}
+  /@oxlint/win32-x64@0.2.7:
+    resolution: {integrity: sha512-eVKvNodOIDtAy3Hv6SyBCZh4LcGtyLfucRQSqdlPYjKmiebsBa3G2Y28EzxeSH9PkT9zOXfZLo/vjycB3PfBqw==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -2629,10 +2593,6 @@ packages:
 
   /@pandacss/types@0.29.1:
     resolution: {integrity: sha512-jIBG7sr61E0tmXNEA2JQB9yzG9ASFTZY2fuAtafO24FOnmFEOJ/nTa4a2qgVESjiDqdow+VEGSKQVyeQ1DuTEg==}
-    dev: false
-
-  /@panva/hkdf@1.1.1:
-    resolution: {integrity: sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==}
     dev: false
 
   /@parcel/watcher-android-arm64@2.4.0:
@@ -3221,15 +3181,16 @@ packages:
       solid-js: 1.8.12
     dev: false
 
-  /@solidjs/start@0.4.11(rollup@3.29.4)(solid-js@1.8.12)(vinxi@0.1.10)(vite@5.0.12):
-    resolution: {integrity: sha512-UdOiUwwM2C0nf7EzCyWT+Jx2UZWSzwir0+JMtazGWSgft1k1qF81UroAR6PzcrC/TyhvW+XVz73dMAP310oSVA==}
+  /@solidjs/start@0.5.0(rollup@3.29.4)(solid-js@1.8.12)(vinxi@0.2.1)(vite@5.0.12):
+    resolution: {integrity: sha512-JoKYAvwje/ctecxAH9LkDxWMsIIzd8PsOdrA3qLlqpa5lpeO/Hi65LUHDnSa2Xp2ZjPYNfAttQFNY1EojEaRWQ==}
     dependencies:
-      '@vinxi/plugin-directives': 0.1.3(vinxi@0.1.10)
-      '@vinxi/server-components': 0.1.3(vinxi@0.1.10)
-      '@vinxi/server-functions': 0.1.4(vinxi@0.1.10)
+      '@vinxi/plugin-directives': 0.2.0(vinxi@0.2.1)
+      '@vinxi/server-components': 0.2.0(vinxi@0.2.1)
+      '@vinxi/server-functions': 0.2.1(vinxi@0.2.1)
       defu: 6.1.4
       error-stack-parser: 2.1.4
       html-to-image: 1.11.11
+      radix3: 1.1.0
       seroval: 1.0.4
       seroval-plugins: 1.0.4(seroval@1.0.4)
       shikiji: 0.9.19
@@ -3400,8 +3361,8 @@ packages:
       - supports-color
     dev: false
 
-  /@vinxi/devtools@0.1.1(@babel/core@7.23.9)(preact@10.19.3)(rollup@3.29.4)(vite@4.5.0):
-    resolution: {integrity: sha512-/A7X1hoNBsgC2n7nKOWbIa4cTt9dJq9nehyLGdNxgjEcGzbsaJrofUDrFLt+0YJlyb7OOhFEPYHRCat3tsrytw==}
+  /@vinxi/devtools@0.2.0(@babel/core@7.23.9)(preact@10.19.3)(rollup@3.29.4)(vite@4.5.0):
+    resolution: {integrity: sha512-LpQp5zbiBhV4eo2w6AiJFtpZZj4LaRBOnzggIPTeSJYvgrxRMAqe/34Har3vVo+b7sPOjxFbE1zHZhLzaAcidw==}
     dependencies:
       '@preact/preset-vite': 2.8.1(@babel/core@7.23.9)(preact@10.19.3)(vite@4.5.0)
       '@solidjs/router': 0.8.4(solid-js@1.8.12)
@@ -3445,10 +3406,10 @@ packages:
       uqr: 0.1.2
     dev: false
 
-  /@vinxi/plugin-directives@0.1.3(vinxi@0.1.10):
-    resolution: {integrity: sha512-gXCvemIQIxEjUlJRUyQUAoL9lT6iY39uEZXCFzONYRIelnI2PJ1DyAz44ieCdOdAVCWBYKwyYVG5jZRYaV26pQ==}
+  /@vinxi/plugin-directives@0.2.0(vinxi@0.2.1):
+    resolution: {integrity: sha512-DoYuIuvdylU+0XNOipvcbw08XDBBbEksc3euCsbApNVpmQ/mC+2CjoErHtjb4zX1RqNwe1sJ8awMK6fKUMLGRA==}
     peerDependencies:
-      vinxi: ^0.1.5
+      vinxi: ^0.2.0
     dependencies:
       '@babel/parser': 7.23.9
       acorn: 8.11.3
@@ -3459,37 +3420,37 @@ packages:
       magicast: 0.2.11
       recast: 0.23.4
       tslib: 2.6.2
-      vinxi: 0.1.10(preact@10.19.3)(rollup@3.29.4)
+      vinxi: 0.2.1(preact@10.19.3)(rollup@3.29.4)
     dev: false
 
-  /@vinxi/server-components@0.1.3(vinxi@0.1.10):
-    resolution: {integrity: sha512-QcvNeu0y1SZewg5QzK/zRdho8gJz99MlMLfda1aWIfYFHWWaOr7zMFbXsZh0Qcs7PYx0gHvqUXNLUmUW3/2XWg==}
+  /@vinxi/server-components@0.2.0(vinxi@0.2.1):
+    resolution: {integrity: sha512-U3z6pxK5CWBxaUmyg7zdDMTl1AMa47MpYCUcs0QVOz/C8kKlT6C9Ozh5pZWuzAO0cTeueNpQumDWhQ4YTXTsZw==}
     peerDependencies:
-      vinxi: ^0.1.5
+      vinxi: ^0.2.0
     dependencies:
-      '@vinxi/plugin-directives': 0.1.3(vinxi@0.1.10)
+      '@vinxi/plugin-directives': 0.2.0(vinxi@0.2.1)
       acorn: 8.11.3
       acorn-loose: 8.4.0
       acorn-typescript: 1.4.13(acorn@8.11.3)
       astring: 1.8.6
       magicast: 0.2.11
       recast: 0.23.4
-      vinxi: 0.1.10(preact@10.19.3)(rollup@3.29.4)
+      vinxi: 0.2.1(preact@10.19.3)(rollup@3.29.4)
     dev: false
 
-  /@vinxi/server-functions@0.1.4(vinxi@0.1.10):
-    resolution: {integrity: sha512-ZysR6zlcZ4xYBKUm6Q/oNhjjwUZXaLFLbXwIy9Q2SgcXJ74cUWQ0/EDz/WePhHgQ32NMiv2fPURBvN+XDzBO8g==}
+  /@vinxi/server-functions@0.2.1(vinxi@0.2.1):
+    resolution: {integrity: sha512-ir06Q6nEpJFU1uXqHdKE2OXqZFjChAIgAHpCJzMunHiutRNyYTJ7ZhbFCUk5xOx+StMpWKtqOv72TDeP/xTLtA==}
     peerDependencies:
-      vinxi: ^0.1.9
+      vinxi: ^0.2.1
     dependencies:
-      '@vinxi/plugin-directives': 0.1.3(vinxi@0.1.10)
+      '@vinxi/plugin-directives': 0.2.0(vinxi@0.2.1)
       acorn: 8.11.3
       acorn-loose: 8.4.0
       acorn-typescript: 1.4.13(acorn@8.11.3)
       astring: 1.8.6
       magicast: 0.2.11
       recast: 0.23.4
-      vinxi: 0.1.10(preact@10.19.3)(rollup@3.29.4)
+      vinxi: 0.2.1(preact@10.19.3)(rollup@3.29.4)
     dev: false
 
   /@vue/compiler-core@3.3.4:
@@ -4359,8 +4320,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /better-sqlite3@9.3.0:
-    resolution: {integrity: sha512-ww73jVpQhRRdS9uMr761ixlkl4bWoXi8hMQlBGhoN6vPNlUHpIsNmw4pKN6kjknlt/wopdvXHvLk1W75BI+n0Q==}
+  /better-sqlite3@9.4.0:
+    resolution: {integrity: sha512-5kynxekMxSjCMiFyUBLHggFcJkCmiZi6fUkiGz/B5GZOvdRWQJD0klqCx5/Y+bm2AKP7I/DHbSFx26AxjruWNg==}
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -4443,7 +4404,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001583
-      electron-to-chromium: 1.4.655
+      electron-to-chromium: 1.4.656
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -4522,7 +4483,7 @@ packages:
     resolution: {integrity: sha512-C3nQxfFZxFRVoJoGKKI8y3MOEo129NQ+FgQ08iye+Mk4zNZZGdjfs06bVTr+DBSlA66Q2VEcMki/cUCP4SercQ==}
     dependencies:
       function-bind: 1.1.2
-      get-intrinsic: 1.2.2
+      get-intrinsic: 1.2.3
       set-function-length: 1.2.0
     dev: false
 
@@ -4896,7 +4857,7 @@ packages:
     resolution: {integrity: sha512-E7uGkTzkk1d0ByLeSc6ZsFS79Axg+m1P/VsgYsxHgiuc3tFSj+MjMIwe90FC4lOAZzNBdY7kkO2P2wKdsQ1vgQ==}
     engines: {node: '>= 0.4'}
     dependencies:
-      get-intrinsic: 1.2.2
+      get-intrinsic: 1.2.3
       gopd: 1.0.1
       has-property-descriptors: 1.0.1
     dev: false
@@ -5041,7 +5002,7 @@ packages:
       - supports-color
     dev: false
 
-  /drizzle-orm@0.29.3(better-sqlite3@9.3.0):
+  /drizzle-orm@0.29.3(better-sqlite3@9.4.0):
     resolution: {integrity: sha512-uSE027csliGSGYD0pqtM+SAQATMREb3eSM/U8s6r+Y0RFwTKwftnwwSkqx3oS65UBgqDOM0gMTl5UGNpt6lW0A==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -5112,7 +5073,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      better-sqlite3: 9.3.0
+      better-sqlite3: 9.4.0
     dev: false
 
   /dts-buddy@0.2.5:
@@ -5143,8 +5104,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
-  /electron-to-chromium@1.4.655:
-    resolution: {integrity: sha512-2yszojF7vIZ68adIOvzV4bku8OZad9w5H9xF3ZAMZjPuOjBarlflUkjN6DggdV+L71WZuKUfKUhov/34+G5QHg==}
+  /electron-to-chromium@1.4.656:
+    resolution: {integrity: sha512-9AQB5eFTHyR3Gvt2t/NwR0le2jBSUNwCnMbUCejFWHD+so4tH40/dRLgoE+jxlPeWS43XJewyvCv+I8LPMl49Q==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -5183,6 +5144,11 @@ packages:
     resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
     dependencies:
       stackframe: 1.3.4
+    dev: false
+
+  /es-errors@1.0.0:
+    resolution: {integrity: sha512-yHV74THqMJUyFKkHyN7hyENcEZM3Dj2a2IrdClY+IT4BFQHkIVwlh8s6uZfjsFydMdNHv0F5mWgAA3ajFbsvVQ==}
+    engines: {node: '>= 0.4'}
     dev: false
 
   /es-module-lexer@1.4.1:
@@ -5639,9 +5605,11 @@ packages:
     engines: {node: 6.* || 8.* || >= 10.*}
     dev: false
 
-  /get-intrinsic@1.2.2:
-    resolution: {integrity: sha512-0gSo4ml/0j98Y3lngkFEot/zhiCeWsbYIlZ+uZOVgzLyLaUw7wxUL+nCTP0XJvJg1AXulJRI3UJi8GsbDuxdGA==}
+  /get-intrinsic@1.2.3:
+    resolution: {integrity: sha512-JIcZczvcMVE7AUOP+X72bh8HqHBRxFdz5PDHYtNG/lE3yk9b3KZBJlwFcTyPYjg3L4RLLmZJzvjxhaZVapxFrQ==}
+    engines: {node: '>= 0.4'}
     dependencies:
+      es-errors: 1.0.0
       function-bind: 1.1.2
       has-proto: 1.0.1
       has-symbols: 1.0.3
@@ -5753,7 +5721,7 @@ packages:
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
-      get-intrinsic: 1.2.2
+      get-intrinsic: 1.2.3
     dev: false
 
   /graceful-fs@4.2.11:
@@ -5795,7 +5763,7 @@ packages:
   /has-property-descriptors@1.0.1:
     resolution: {integrity: sha512-VsX8eaIewvas0xnvinAe9bw4WfIeODpGYikiWYLH+dma0Jw6KHYqWiWfhQlgOVK8D6PvjubK5Uc4P0iIhIcNVg==}
     dependencies:
-      get-intrinsic: 1.2.2
+      get-intrinsic: 1.2.3
     dev: false
 
   /has-proto@1.0.1:
@@ -6141,8 +6109,8 @@ packages:
       '@sideway/pinpoint': 2.0.0
     dev: false
 
-  /jose@5.2.0:
-    resolution: {integrity: sha512-oW3PCnvyrcm1HMvGTzqjxxfnEs9EoFOFWi2HsEGhlFVOXxTE3K9GKWVMFoFw06yPUqwpvEWic1BmtUZBI/tIjw==}
+  /jose@5.2.1:
+    resolution: {integrity: sha512-qiaQhtQRw6YrOaOj0v59h3R6hUY9NvxBmmnMfKemkqYmBB0tEc97NbLP7ix44VP5p9/0YHG8Vyhzuo5YBNwviA==}
     dev: false
 
   /js-tokens@4.0.0:
@@ -6913,10 +6881,6 @@ packages:
       ufo: 1.3.2
     dev: false
 
-  /oauth4webapi@2.8.1:
-    resolution: {integrity: sha512-Jm1Z6eUumtevQWxMllSw+4diHOcFyxuc3KAXoyh4fbpHndbXRbviyrLoCn8htEdHYZM/MIOVbeWjDk86BxVF+A==}
-    dev: false
-
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -7034,19 +6998,19 @@ packages:
   /outdent@0.8.0:
     resolution: {integrity: sha512-KiOAIsdpUTcAXuykya5fnVVT+/5uS0Q1mrkRHcF89tpieSmY33O/tmc54CqwA+bfhbtEfZUNLHaPUiB9X3jt1A==}
 
-  /oxlint@0.2.6:
-    resolution: {integrity: sha512-oT4Stz2Gr/9cWXtrSZSQ0g3DCd1BWqTejcXqmu6dU7TT/8JMa7rJr1liW632aJY/Ean9sGrFhwXXCCCyM29NlA==}
+  /oxlint@0.2.7:
+    resolution: {integrity: sha512-v68bBpXI8ogUkzLewLiQoG0fJwvpYq3IiJS6/XbzuUoV/+RVtqVm7SB27N8Ts4QrOu8HIRaGlWrscN4RzT2OCA==}
     engines: {node: '>=14.*'}
     hasBin: true
     optionalDependencies:
-      '@oxlint/darwin-arm64': 0.2.6
-      '@oxlint/darwin-x64': 0.2.6
-      '@oxlint/linux-arm64-gnu': 0.2.6
-      '@oxlint/linux-arm64-musl': 0.2.6
-      '@oxlint/linux-x64-gnu': 0.2.6
-      '@oxlint/linux-x64-musl': 0.2.6
-      '@oxlint/win32-arm64': 0.2.6
-      '@oxlint/win32-x64': 0.2.6
+      '@oxlint/darwin-arm64': 0.2.7
+      '@oxlint/darwin-x64': 0.2.7
+      '@oxlint/linux-arm64-gnu': 0.2.7
+      '@oxlint/linux-arm64-musl': 0.2.7
+      '@oxlint/linux-x64-gnu': 0.2.7
+      '@oxlint/linux-x64-musl': 0.2.7
+      '@oxlint/win32-arm64': 0.2.7
+      '@oxlint/win32-x64': 0.2.7
     dev: false
 
   /p-limit@2.3.0:
@@ -7231,19 +7195,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
-  /preact-render-to-string@5.2.3(preact@10.11.3):
-    resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}
-    peerDependencies:
-      preact: '>=10'
-    dependencies:
-      preact: 10.11.3
-      pretty-format: 3.8.0
-    dev: false
-
-  /preact@10.11.3:
-    resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
-    dev: false
-
   /preact@10.19.3:
     resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
     dev: false
@@ -7284,10 +7235,6 @@ packages:
   /pretty-bytes@6.1.1:
     resolution: {integrity: sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
-    dev: false
-
-  /pretty-format@3.8.0:
-    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
   /process-nextick-args@2.0.1:
@@ -7695,7 +7642,7 @@ packages:
     dependencies:
       define-data-property: 1.1.1
       function-bind: 1.1.2
-      get-intrinsic: 1.2.2
+      get-intrinsic: 1.2.3
       gopd: 1.0.1
       has-property-descriptors: 1.0.1
     dev: false
@@ -7963,8 +7910,8 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: false
 
-  /streamx@2.15.6:
-    resolution: {integrity: sha512-q+vQL4AAz+FdfT137VF69Cc/APqUbxy+MDOImRrMvchJpigHj9GksgDU2LYbO9rx7RX6osWgxJB2WxhYv4SZAw==}
+  /streamx@2.15.7:
+    resolution: {integrity: sha512-NPEKS5+yjyo597eafGbKW5ujh7Sm6lDLHZQd/lRSz6S0VarpADBJItqfB4PnwpS+472oob1GX5cCY9vzfJpHUA==}
     dependencies:
       fast-fifo: 1.3.2
       queue-tick: 1.0.1
@@ -8097,7 +8044,7 @@ packages:
     dependencies:
       b4a: 1.6.4
       fast-fifo: 1.3.2
-      streamx: 2.15.6
+      streamx: 2.15.7
     dev: false
 
   /tar@6.2.0:
@@ -8513,8 +8460,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vinxi@0.1.10(preact@10.19.3)(rollup@3.29.4):
-    resolution: {integrity: sha512-MndPaR3fUx6FERfB2adWVkTw7qTAhSStM+A2KaqU2qUGMEk51krkKB28ouf+iG6IJGoAtuE+fANUs0hqOLMk2A==}
+  /vinxi@0.2.1(preact@10.19.3)(rollup@3.29.4):
+    resolution: {integrity: sha512-zrgFO2XuKpdoW5VwlbieeQ0YhzMuuYCJyFWFyj41h9BnymHZ5dnKElALvFQn5JVzHhyrsdmlm8GU7tIuH786hw==}
     hasBin: true
     dependencies:
       '@babel/core': 7.23.9
@@ -8523,7 +8470,7 @@ packages:
       '@types/micromatch': 4.0.6
       '@types/serve-static': 1.15.5
       '@types/ws': 8.5.10
-      '@vinxi/devtools': 0.1.1(@babel/core@7.23.9)(preact@10.19.3)(rollup@3.29.4)(vite@4.5.0)
+      '@vinxi/devtools': 0.2.0(@babel/core@7.23.9)(preact@10.19.3)(rollup@3.29.4)(vite@4.5.0)
       '@vinxi/listhen': 1.5.6
       boxen: 7.1.1
       c12: 1.6.1
