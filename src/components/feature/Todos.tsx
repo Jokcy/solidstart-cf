@@ -146,8 +146,8 @@ export function Todos() {
                         size="lg"
                     ></Input>
                     <For each={todos()}>
-                        {({ title, id, completed }) => {
-                            console.log(id, completed);
+                        {(todo) => {
+                            // console.log(id, completed);
                             return (
                                 <div
                                     class={css({
@@ -163,7 +163,7 @@ export function Todos() {
                                                 flexGrow: 1,
                                                 fontSize: "large",
                                             },
-                                            completed
+                                            todo.completed
                                                 ? {
                                                       textDecoration:
                                                           "line-through",
@@ -171,7 +171,7 @@ export function Todos() {
                                                 : {},
                                         )}
                                     >
-                                        {title}
+                                        {todo.title}
                                     </p>
                                     <div
                                         class={css({
@@ -182,14 +182,14 @@ export function Todos() {
                                         })}
                                     >
                                         <Switch
-                                            checked={completed === 1}
+                                            checked={todo.completed === 1}
                                             onCheckedChange={async (v) => {
                                                 console.log(
                                                     "-------->  ",
-                                                    completed,
+                                                    todo.completed,
                                                 );
                                                 await complete(
-                                                    id,
+                                                    todo.id,
                                                     v.checked ? 1 : 0,
                                                 );
                                                 revalidate(getTodos.key);
@@ -200,7 +200,7 @@ export function Todos() {
                                             colorPalette="red"
                                             size="xs"
                                             onClick={async () => {
-                                                await remove(id);
+                                                await remove(todo.id);
                                                 revalidate(getTodos.key);
                                             }}
                                         >

@@ -1,7 +1,20 @@
 // import { redirect } from "@solidjs/router";
 import { APIEvent } from "@solidjs/start/server/types";
 import cookie from "cookie";
-import { signJWT } from "../../../../functions/session";
+import { SignJWT } from "jose";
+
+const signJWT = async (payload: any) => {
+    "use server";
+
+    const SECRET = process.env.JWT_SECRET!;
+
+    const secret = new TextEncoder().encode(SECRET);
+
+    const jwt = new SignJWT(payload)
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("1d");
+    return await jwt.sign(secret);
+};
 
 export async function GET(event: APIEvent) {
     const request = event.request;

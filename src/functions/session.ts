@@ -2,7 +2,7 @@ import { action, redirect, useAction } from "@solidjs/router";
 import { createSignal, onMount } from "solid-js";
 import { getRequestEvent } from "solid-js/web";
 import cookie from "cookie";
-import { SignJWT, jwtVerify } from "jose";
+import { jwtVerify } from "jose";
 
 export type Session = {
     id: number;
@@ -11,19 +11,6 @@ export type Session = {
 };
 
 const [session, setSession] = createSignal<Session | null>();
-
-export const signJWT = async (payload: any) => {
-    "use server";
-
-    const SECRET = process.env.JWT_SECRET!;
-
-    const secret = new TextEncoder().encode(SECRET);
-
-    const jwt = new SignJWT(payload)
-        .setProtectedHeader({ alg: "HS256" })
-        .setExpirationTime("1d");
-    return await jwt.sign(secret);
-};
 
 export const getSessionFromCookie = async () => {
     "use server";
